@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HH-SCHOOL. JavaScript</title>
+    </head>
+    <body>
+        <input id="input-field" onkeypress="handle(event)" />
+        <ul id="list"></ul>
+    </body>
+</html>
+
+<script>
+    var cur_id = 1;
+
+    function handle(e) {
+        if (e.keyCode === 13) {
+            var li = document.createElement("li");
+            li.innerHTML = document.getElementById("input-field").value;
+            li.id = cur_id;
+            document.getElementById("list").appendChild(li);
+            cur_id += 1;
+        }
+    }
+</script>
