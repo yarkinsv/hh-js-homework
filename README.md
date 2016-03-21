@@ -1,1 +1,1 @@
-# hh-js-homework
+# Домашняя работа для hh-school. JavaScript.
