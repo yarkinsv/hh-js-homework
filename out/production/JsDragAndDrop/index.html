@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HH-SCHOOL. JavaScript</title>
+</head>
+<body>
+    <input id="input-field" onkeypress="handle(event)" />
+    <button onclick="loadDoc()">Click me</button>
+    <label id="demo"></label>
+    <ul id="list"></ul>
+</body>
+</html>
+
+<script>
+    var cur_id = 1;
+
+    function handle(e) {
+        if (e.keyCode === 13) {
+            var li = document.createElement("li");
+            li.innerHTML = document.getElementById("input-field").value;
+            li.id = cur_id;
+            document.getElementById("list").appendChild(li);
+            cur_id += 1;
+        }
+    }
+
+    function loadDoc() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                document.getElementById("demo").innerHTML = xhttp.responseText;
+            }
+        };
+        xhttp.open("POST", "http://localhost:8000/test", true);
+        xhttp.send("sdfsdfsdklfjkl");
+    }
+</script>
